@@ -2,9 +2,9 @@ directory = '.'
 
 Dir.entries(directory).select do |file|
   if File.directory? file and !(file =~ /\.(.*)/)
-    puts "pulling repo #{file}"
+    puts "getting git status for repo #{file}"
     Dir.chdir file
-    %x[git pull]
+    %x[git status]
     Dir.chdir '..'
   end
 end
